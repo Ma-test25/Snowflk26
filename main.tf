@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     snowflake = {
-      source  = "chanzuckerberg/snowflake"
-      version = "0.25.17"
+      source  = "snowflakedb/snowflake"
+      version = "~> 2.0"
     }
   }
 
@@ -16,9 +16,22 @@ terraform {
 }
 
 provider "snowflake" {
+  organization_name = "XPZNHDN"
+  account_name      = "LLB66471"
+
+  user      = "TERRAFORM_USER"
+  password  = var.snowflake_password
+  role      = "TERRAFORM_ROLE"
+  warehouse = "TERRAFORM_WH"
+}
+
+variable "snowflake_password" {
+  description = "Snowflake password"
+  type        = string
+  sensitive   = true
 }
 
 resource "snowflake_database" "demo_mahi" {
   name    = "DEMO_MAHI"
-  comment = "Database for Snowflake Terraform demo"
+  comment = "Database created using Terraform Cloud and GitHub Actions"
 }
