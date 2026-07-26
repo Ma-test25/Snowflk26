@@ -35,3 +35,9 @@ resource "snowflake_database" "demo_mahi" {
   name    = "DEMO_MAHI"
   comment = "Database created using Terraform Cloud and GitHub Actions"
 }
+
+resource "snowflake_schema" "demo_schema" {
+  database = snowflake_database.demo_mahi.name
+  name     = "DEMO_SCHEMA"
+  comment  = "Schema for Snowflake Terraform demo"
+}
