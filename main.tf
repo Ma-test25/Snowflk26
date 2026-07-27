@@ -19,10 +19,8 @@ provider "snowflake" {
   organization_name = "XPZNHDN"
   account_name      = "LLB66471"
 
-  user      = "TERRAFORM_USER"
+  user      = "MAHINDHA"
   password  = var.snowflake_password
-  role      = "TERRAFORM_ROLE"
-  warehouse = "TERRAFORM_WH"
 }
 
 variable "snowflake_password" {
@@ -31,13 +29,13 @@ variable "snowflake_password" {
   sensitive   = true
 }
 
-resource "snowflake_database" "demo_mahi" {
-  name    = "DEMO_MAHI"
+resource "snowflake_database" "demo_day" {
+  name    = "DEMO_DAY"
   comment = "Database created using Terraform Cloud and GitHub Actions"
 }
 
 resource "snowflake_schema" "demo_schema" {
-  database = snowflake_database.demo_mahi.name
+  database = snowflake_database.demo_day.name
   name     = "DEMO_SCHEMA"
   comment  = "Schema for Snowflake Terraform demo"
 }
