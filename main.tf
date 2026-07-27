@@ -34,8 +34,3 @@ resource "snowflake_database" "demo_day" {
   comment = "Database created using Terraform Cloud and GitHub Actions"
 }
 
-resource "snowflake_schema" "demo_schema" {
-  database = snowflake_database.demo_day.name
-  name     = "DEMO_SCHEMA"
-  comment  = "Schema for Snowflake Terraform demo"
-}
