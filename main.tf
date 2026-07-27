@@ -19,8 +19,8 @@ provider "snowflake" {
   organization_name = "XPZNHDN"
   account_name      = "LLB66471"
 
-  user      = "MAHINDHA"
-  password  = var.snowflake_password
+  user     = "MAHINDHA"
+  password = var.snowflake_password
 }
 
 variable "snowflake_password" {
